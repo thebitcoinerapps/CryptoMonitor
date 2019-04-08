@@ -18,7 +18,7 @@ class App extends React.Component{
 
 
         return(
-            <div><Grid /></div>
+            <div><Grid data={this.state.data}/></div>
         );
     }
     componentDidMount(){
@@ -28,7 +28,6 @@ class App extends React.Component{
         headers:{'X-CMC_PRO_API_KEY': '153b7674-87f4-4648-87a3-1c282cad2931'}
     }).then((res)=>{
         this.setState({data: res.data.data});
-        console.log(this.state);
     })
 
 

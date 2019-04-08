@@ -1,18 +1,19 @@
 import React from 'react';
 
-class Column extends React.Component{
+const Column = (props) =>{
 
-    render(){
-        return(
+    const columns = props.data.data.map((element)=>{
+        return (
             <div className="column">
                 <div className="ui card">
                     <div className="content">
-                    Some text and img
+                        {element.name}
                     </div>
                 </div>
             </div>
         );
-    };
+    }); 
+    return columns;
 
 }
 export default Column;

@@ -7,16 +7,13 @@ class Grid extends React.Component {
         return (
             <div className="container">
                 <div className="five column doubling ui grid">
-                <Column />
-                <Column />
-                <Column />
-                <Column />
-                <Column />
+                <Column data={this.props}/>
                 </div>
             </div>
         );
     };
-    
+    componentDidMount(){
+    }
      
 }
 
