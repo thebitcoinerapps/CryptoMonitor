@@ -7,7 +7,10 @@ import './style.css';
 
 class App extends React.Component{
 
-    state = {data:[]};
+    state = {
+        data:[],
+        metadata:[]
+    };
 
 
     render(){
@@ -22,19 +25,27 @@ class App extends React.Component{
         );
     }
     componentDidMount(){
-    
+    let paramsToload = '';
     axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',{
         params:{},
         headers:{'X-CMC_PRO_API_KEY': '153b7674-87f4-4648-87a3-1c282cad2931'}
     }).then((res)=>{
         this.setState({data: res.data.data});
-    })
 
-
-
-    }
-
-
+        const idArray = this.state.data.map((element)=>{
+            return element.id;
+        });
+        paramsToload = idArray.join();
+    }).then((ok)=>{
+        axios.get('https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/info',{
+            params:{id: paramsToload},
+            headers:{'X-CMC_PRO_API_KEY': '153b7674-87f4-4648-87a3-1c282cad2931'}
+        }).then((res)=>{
+            this.setState({metadata: res.data});
+            console.log(this.state.metadata);
+        })}
+    );
+}
 }
 
 ReactDOM.render(
