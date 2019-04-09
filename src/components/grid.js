@@ -5,10 +5,7 @@ class Grid extends React.Component {
     
     render(){
         return (
-            <button class="ui primary button">
-                Update
-            </button>
-            <div className="container">
+            <div className="container">       
                 <div className="five column doubling ui grid">
                 <Column data={this.props}/>
                 </div>

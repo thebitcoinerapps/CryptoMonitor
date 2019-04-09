@@ -9,7 +9,6 @@ const Column = (props) =>{
                 return img.id === e.id;
             });
         });
-        console.log(props.data.data);
         const columns = props.data.data.map((element)=>{
             let pos = element.cmc_rank - 1;
             let price = element.quote.USD.price.toFixed(4);

@@ -5,6 +5,8 @@ import Grid from './components/grid';
 import Spinner from './components/spinner';
 import './style.css';
 
+const button = document.querySelector(".btn");
+
 class App extends React.Component{
 
     state = {
@@ -20,7 +22,11 @@ class App extends React.Component{
         }
         if(this.state.metadata.length !== null){
         return(
-            <div><Grid data={this.state.data} metadata={this.state.metadata}/></div>
+            <div>
+
+                <Grid data={this.state.data} metadata={this.state.metadata}/>
+            
+            </div>
         );}
     }
     componentDidMount(){
@@ -43,6 +49,9 @@ class App extends React.Component{
             this.setState({metadata: res.data});
         })}
     );
+    button.addEventListener('click',()=>{
+        this.componentDidMount();
+    });
 }
 }
 
