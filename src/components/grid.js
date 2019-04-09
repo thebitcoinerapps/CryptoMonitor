@@ -6,7 +6,7 @@ class Grid extends React.Component {
     render(){
         return (
             <button class="ui primary button">
-                Save
+                Update
             </button>
             <div className="container">
                 <div className="five column doubling ui grid">
