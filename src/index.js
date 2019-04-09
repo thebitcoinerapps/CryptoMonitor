@@ -18,11 +18,10 @@ class App extends React.Component{
         if(this.state.data.length < 1){
             return <Spinner />;
         }
-
-
+        if(this.state.metadata.length !== null){
         return(
-            <div><Grid data={this.state.data}/></div>
-        );
+            <div><Grid data={this.state.data} metadata={this.state.metadata}/></div>
+        );}
     }
     componentDidMount(){
     let paramsToload = '';
@@ -42,7 +41,6 @@ class App extends React.Component{
             headers:{'X-CMC_PRO_API_KEY': '153b7674-87f4-4648-87a3-1c282cad2931'}
         }).then((res)=>{
             this.setState({metadata: res.data});
-            console.log(this.state.metadata);
         })}
     );
 }
